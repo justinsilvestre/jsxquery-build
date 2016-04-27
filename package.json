@@ -1,0 +1,42 @@
+{
+  "name": "jsxquery-build",
+  "version": "0.0.0",
+  "engines": {
+    "node": "5.x"
+  },
+  "description": "Build tool for jsxQuery -> jQuery + JSTL.",
+  "main": "lib/index.js",
+  "scripts": {
+    "compile": "babel --optional runtime -d lib/ src/ --presets es2015",
+    "pretest": "npm run compile",
+    "test": "mocha --harmony_proxies --recursive",
+    "prepublish": "npm run compile"
+  },
+  "author": "Justin Silvestre",
+  "license": "CC-BY-NC-SA-4.0",
+   "repository":
+  { 
+    "type" : "git",
+    "url" : "https://github.com/justinsilvestre/jsxquery-build.git"
+  },
+  "devDependencies": {
+    "expect": "^1.18.0",
+    "mocha": "^2.4.5",
+    "mocha-sinon": "^1.1.5",
+    "sinon": "^1.17.3"
+  },
+  "dependencies": {
+    "babel-core": "^6.7.7",
+    "babel-plugin-transform-es2015-modules-commonjs-simple": "^6.7.4",
+    "babel-plugin-transform-react-jsx": "^6.7.5",
+    "babel-preset-es2015-webpack": "^6.4.1",
+    "babel-preset-stage-2": "^6.5.0",
+    "escape-string-regexp": "^1.0.5",
+    "lodash.flatmap": "^4.3.0",
+    "mkdirp": "^0.5.1",
+    "node-hook": "^0.3.0",
+    "object-assign-deep": "0.0.4",
+    "rimraf": "^2.5.2",
+    "webpack": "^1.13.0"
+  }
+}

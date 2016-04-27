@@ -1,0 +1,5 @@
+test/markup
+test/scripts
+lib
+node_modules
+tmp
