@@ -23,7 +23,7 @@ function onlyPlugins({ presets, plugins }) {
   return (plugins || []).concat(flatMap(presets || [], toPlugins));
 }
 
-export default function getSchema(path, extraBabelOptions = {}) {
+export default function requireJsxQuery(path, extraBabelOptions = {}) {
   const givenPlugins = (extraBabelOptions.plugins || []).concat(flatMap(extraBabelOptions.presets || [], toPlugins))
   const babelOptions = {
     plugins: [

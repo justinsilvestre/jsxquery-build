@@ -45,7 +45,7 @@ describe('jsxQueryBuild', () => {
 
   // create files
   existingMarkupFilePaths.forEach((fullPath, i) => {
-    const contents = 'This content should be preserved.' + stamps.jsp(schemaPath) + 'This content should get overwritten.';
+    const contents = 'This content should be preserved.\n' + stamps.jsp('elementOrComponentName') + 'This content should get overwritten.';
     beforeEach(done =>
       fs.writeFile(fullPath, contents, done)
     )
@@ -87,7 +87,7 @@ describe('jsxQueryBuild', () => {
         Promise.all(existingMarkupFilePaths.map(existingMarkupFile =>
           ioUtils.getCurrentContents(existingMarkupFile)
         )).then(fileContentsArray => {
-            fileContentsArray.forEach(code => expect(code).toContain('This content should be preserved'))
+            fileContentsArray.map(obj => obj.currentContents).forEach(code => expect(code).toContain('This content should be preserved'))
             done();
         }).catch(done);
       }
@@ -100,7 +100,7 @@ describe('jsxQueryBuild', () => {
         Promise.all(existingMarkupFilePaths.map(existingMarkupFile =>
           ioUtils.getCurrentContents(existingMarkupFile)
         )).then(fileContentsArray => {
-            fileContentsArray.forEach(code => expect(code).toNotContain('This content should get overwritten'))
+            fileContentsArray.map(obj => obj.currentContents).forEach(code => expect(code).toNotContain('This content should get overwritten'))
             done();
         }).catch(done);
       }

@@ -1,8 +1,8 @@
 const path = require('path');
 const expect = require('expect')
-const getSchema = require('../lib/getSchema').default;
+const requireJsxQuery = require('../lib/requireJsxQuery').default;
 
-describe('getSchema', () => {
+describe('requireJsxQuery', () => {
   const schemaLocation = path.join(__dirname, 'schema.jsx');
   const options = { presets: ['es2015'] };
 
@@ -10,14 +10,14 @@ describe('getSchema', () => {
     require.cache = {};
   });
 
-  it('gets schema', () => {
-    const schema = getSchema(schemaLocation, options);
+  it('gets jsxQuery', () => {
+    const schema = requireJsxQuery(schemaLocation, options);
 
     expect('page1' in schema).toBe(true);
   });
 
   it('deactivates transform hook after getting schema', () => {
-    const schema = getSchema(schemaLocation, options);
+    const schema = requireJsxQuery(schemaLocation, options);
 
     expect(() => require('./jsxTest.jsx')).toThrow(SyntaxError);
   });

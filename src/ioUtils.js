@@ -20,13 +20,11 @@ export function writeFile(fullPath, newContents) {
 
 export function getCurrentContents(fullPath) {
   return new Promise((resolve, reject) => {
-    fs.readFile(fullPath, 'utf8', (err, data) => {
+    fs.readFile(fullPath, 'utf8', (err, currentContents) => {
       if (!err) {
-        print('Overwriting file', fullPath);
-        resolve(data);
+        resolve({ currentContents, message: 'Overwriting file' });
       } else if (err.code === 'ENOENT') {
-        print('Creating file', fullPath)
-        resolve('');
+        resolve({ currentContents: '', message: 'Creating file' });
       } else {
         reject(err);
       }
