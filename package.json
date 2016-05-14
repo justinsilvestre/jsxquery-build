@@ -1,6 +1,6 @@
 {
   "name": "jsxquery-build",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "engines": {
     "node": "5.x"
   },
@@ -14,10 +14,9 @@
   },
   "author": "Justin Silvestre",
   "license": "CC-BY-NC-SA-4.0",
-   "repository":
-  { 
-    "type" : "git",
-    "url" : "https://github.com/justinsilvestre/jsxquery-build.git"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/justinsilvestre/jsxquery-build.git"
   },
   "devDependencies": {
     "expect": "^1.18.0",
@@ -38,5 +37,8 @@
     "object-assign-deep": "0.0.4",
     "rimraf": "^2.5.2",
     "webpack": "^1.13.0"
+  },
+  "peerDependencies": {
+    "jsxquery": "0.0.6
   }
 }
