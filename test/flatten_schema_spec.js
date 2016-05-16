@@ -1,12 +1,12 @@
 const path = require('path');
 const expect = require('expect')
-const getSchema = require('../lib/getSchema').default;
+const requireJsxQuery = require('../lib/requireJsxQuery').default;
 const flattenSchema = require('../lib/flattenSchema').default;
 
 describe('flattenSchema', () => {
   const schemaLocation = path.join(__dirname, 'schema.jsx');
   const options = { presets: ['es2015'] };
-  const schema = getSchema(schemaLocation, options);
+  const schema = requireJsxQuery(schemaLocation, options);
 
   it('flattens schema', () => {
     const flattenedSchema = flattenSchema(schema);

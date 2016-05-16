@@ -10,7 +10,7 @@
     "compile": "babel --optional runtime -d lib/ src/ --presets es2015",
     "pretest": "npm run compile",
     "test": "mocha --harmony_proxies --recursive",
-    "prepublish": "npm run compile"
+    "prepublish": "npm run test"
   },
   "author": "Justin Silvestre",
   "license": "CC-BY-NC-SA-4.0",
@@ -20,6 +20,7 @@
   },
   "devDependencies": {
     "expect": "^1.18.0",
+    "jsxquery": "^0.1.2",
     "mocha": "^2.4.5",
     "mocha-sinon": "^1.1.5",
     "sinon": "^1.17.3"
