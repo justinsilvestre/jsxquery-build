@@ -1,9 +1,11 @@
-import path, { dirname, basename } from 'path';
+import path, { dirname, basename, extname } from 'path';
 import * as autogenerationStamps from './autogenerationStamps';
 import { mkdirp, writeFile, getCurrentContents } from './ioUtils'
 import print from './print'
 
-function buildScriptsFile(el, fullPath, forceOverwrite) {
+function buildScriptsFile(el, pathMaybeWithoutExtension, forceOverwrite) {
+  const fullPath = path.join(dirname(pathMaybeWithoutExtension), basename(pathMaybeWithoutExtension) + '.js');
+
   if (el.component && el.component.mutableProps.length === 0
       && Object.keys(el.component.propMethodStrings()).length === 0
       )

@@ -162,4 +162,17 @@ describe('jsxQueryBuild', () => {
       },
     });
   });
+
+  it('creates a non-JSP file when a different file extension is given', (done) => {
+    build(schemaPath, { scriptsOutputDirectory, markupOutputDirectory,
+      success: () => {
+        fs.stat(path.join(markupOutputDirectory, 'notAJsp.html'), (err, stats) => {
+          if (err)
+            throw err;
+          
+          done();
+        });
+      },
+    });
+  })
 });

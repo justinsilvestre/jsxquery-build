@@ -3,7 +3,8 @@ import * as autogenerationStamps from './autogenerationStamps';
 import { mkdirp, writeFile, getCurrentContents } from './ioUtils'
 import print from './print'
 
-function buildMarkupFile(el, fullPath, forceOverwrite) {
+function buildMarkupFile(el, pathMaybeWithoutExtension, forceOverwrite) {
+  const fullPath = pathMaybeWithoutExtension + (extname(pathMaybeWithoutExtension) ? '' : '.jsp');
   const directoryName = dirname(fullPath)
   const fileName = basename(fullPath);
 

@@ -21,4 +21,6 @@ module.exports = {
   noScripts: <ComponentWithJustMarkup />,
   propFunction: <ComponentWithPropFunction />,
   mutableProps: <ComponentWithMutableProps />,
+  
+  'notAJsp.html': <ComponentWithPropFunction />,
 };

@@ -20,10 +20,10 @@ function jsxQueryBuild(schemaLocation, options = {}) {
 
   Promise.all([
     ...Object.keys(flattenedSchema).map(filePath =>
-      buildMarkupFile(flattenedSchema[filePath], path.join(markupOutputDirectory, filePath + '.jsp'), forceOverwrite)
+      buildMarkupFile(flattenedSchema[filePath], path.join(markupOutputDirectory, filePath), forceOverwrite)
     ),
     ...Object.keys(flattenedSchema).map(filePath =>
-      maybeBuildScriptFile(flattenedSchema[filePath], path.join(scriptsOutputDirectory, filePath + '.js'), forceOverwrite)
+      maybeBuildScriptFile(flattenedSchema[filePath], path.join(scriptsOutputDirectory, filePath), forceOverwrite)
     )
   ])
   .then(arr => options.success && options.success(arr))
