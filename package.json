@@ -1,6 +1,6 @@
 {
   "name": "jsxquery-build",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "engines": {
     "node": "5.x"
   },
@@ -39,6 +39,6 @@
     "webpack": "^1.13.0"
   },
   "peerDependencies": {
-    "jsxquery": "0.0.6"
+    "jsxquery": "0.x"
   }
 }
